@@ -22,7 +22,7 @@ public class BoardPage extends PageObject {
         List<WebElement> listOfCards = driver.findElements(By.xpath(String.format("//h2[.='%1$s']/../../" +
                 "descendant::a[@class='list-card-title js-card-name']", listName)));
         return listOfCards.stream()
-                .map(webElement -> webElement.getText())
+                .map(WebElement::<String>getText)
                 .collect(Collectors.toList());
     }
 

@@ -18,18 +18,7 @@ public class HomePage extends PageObject {
      * object will behave incorrectly.
      */
     public BoardPage goToBoard(String boardName){
-        driver.findElements(By.xpath(getXpath(boardName))).get(1).click();// TODO: 08.02.16 rewrite with String.format()
+        driver.findElements(By.xpath(String.format("//span[contains(text(),'%1$s')]/..", boardName))).get(1).click();
         return new BoardPage();
-    }
-
-    /**
-     * Generate the Xpath for the board specified as the method parameter. This method generates the Xpath for the board
-     * name by adding board name to the span element that has board names and then adds /.. to return the span's parent.
-     * This method doesn't check if the board name is valid.
-     * @param boardName the board name as a string, case-sensitive
-     * @return the Xpath to the boardName's span element parent
-     */
-    private String getXpath(String boardName) {
-        return "//span[contains(text(),'" + boardName + "')]/..";
     }
 }

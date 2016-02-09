@@ -2,6 +2,7 @@ package framework.pageobject;
 
 import framework.utils.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -14,10 +15,11 @@ public abstract class PageObject {
 
     /**
      * The default constructor gets a WebDriver object and sets implicit wait time to 5 seconds and sleep between polls
-     * duration to 500 milliseconds.
+     * duration to 500 milliseconds. PageFactory is initialized here.
      */
     public PageObject(){
         this.driver = WebDriverFactory.getInstance().getDriver();
         this.wait = new WebDriverWait(driver, 5, 500);
+        PageFactory.initElements(driver, this);
     }
 }
