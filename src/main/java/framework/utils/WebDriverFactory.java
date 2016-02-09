@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
+ * Factory class that initiates WebDriver objects with various parameters.
+ *
  * Created by totallynotkate on 07.02.16.
  */
 public class WebDriverFactory {
@@ -16,10 +18,19 @@ public class WebDriverFactory {
 
     private WebDriverFactory(){}
 
+    /**
+     *
+     * @return an instance of WebDriverFactory. Since this class uses Singleton pattern the instance is always the same
+     */
     public static WebDriverFactory getInstance(){
         return INSTANCE;
     }
 
+    /**
+     * Create a new WebDriver object in a thread-safe manner
+     * @param browserName Browser name represented as a string, e.g. "Firefox". Version numbers are not supported
+     * @return new WebDriver object
+     */
     public WebDriver createDriver(String browserName){
         driverThreadLocal = new ThreadLocal<>();
         if (FIREFOX.equalsIgnoreCase(browserName)){

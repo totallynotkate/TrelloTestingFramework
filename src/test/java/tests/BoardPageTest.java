@@ -17,11 +17,11 @@ public class BoardPageTest extends BaseTest {
     @Test
     public void canDragAndDropCardToAnotherList(){
         BoardPage boardPage = homePage.goToBoard(TEST_BOARD_NAME);
-        Assert.assertTrue(boardPage.getListOfCards(FIRST_LIST_NAME).contains(TEST_CARD_NAME)
-                && ! boardPage.getListOfCards(SECOND_LIST_NAME).contains(TEST_CARD_NAME));
+
         boardPage.dragAndDropCard(TEST_CARD_NAME, SECOND_LIST_NAME);
-        Assert.assertTrue(!boardPage.getListOfCards(FIRST_LIST_NAME).contains(TEST_CARD_NAME)
-                && boardPage.getListOfCards(SECOND_LIST_NAME).contains(TEST_CARD_NAME));
+        Assert.assertFalse(boardPage.getListOfCards(FIRST_LIST_NAME).contains(TEST_CARD_NAME));
+        Assert.assertTrue(boardPage.getListOfCards(SECOND_LIST_NAME).contains(TEST_CARD_NAME));
+
         boardPage.dragAndDropCard(TEST_CARD_NAME, FIRST_LIST_NAME);
     }
 }

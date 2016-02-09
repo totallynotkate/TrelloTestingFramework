@@ -11,15 +11,29 @@ import java.util.stream.Collectors;
 /**
  * Created by totallynotkate on 07.02.16.
  */
-public class BoardPage extends PageObject{
-    public List<String> getListOfCards(String listName){
-        List<WebElement> listOfCards = driver.findElements(By.xpath("//h2[.='" + listName + "']/../../descendant::a[@class='list-card-title js-card-name']"));
+public class BoardPage extends PageObject {
+
+    /**
+     * Get the names of the cards present in the list as a List of Strings
+     * @param listName the name of the list
+     * @return list of card names as Strings, empty if there are no cards present
+     */
+    public List<String> getListOfCards(String listName) {
+        List<WebElement> listOfCards = driver.findElements(By.xpath(String.format("//h2[.='%1$s']/../../" +
+                "descendant::a[@class='list-card-title js-card-name']", listName)));
         return listOfCards.stream()
                 .map(webElement -> webElement.getText())
                 .collect(Collectors.toList());
     }
 
-    public void dragAndDropCard(String cardName, String targetList){
-        (new Actions(driver)).dragAndDrop(driver.findElement(By.xpath("//a[contains(text(),'" + cardName + "')]")), driver.findElement(By.xpath("//h2[.='" + targetList + "']/../.."))).perform();
+    /**
+     * Move a card from one list to another. This method finds the card in any list on the page. This method doesn't
+     * check if the card and the target list are present.
+     * @param cardName The name of a card as a string, case-sensitive
+     * @param targetList The name of the list where the card should be dropped, case-sensitive
+     */
+    public void dragAndDropCard(String cardName, String targetList) {
+        (new Actions(driver)).dragAndDrop(driver.findElement(By.xpath(String.format("//a[contains(text(),'%1$s')]",cardName))),
+                driver.findElement(By.xpath(String.format("//h2[.='%1$s']/../..",targetList)))).perform();
     }
 }
