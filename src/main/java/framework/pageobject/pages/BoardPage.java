@@ -1,6 +1,5 @@
 package framework.pageobject.pages;
 
-import framework.pageobject.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * Created by totallynotkate on 07.02.16.
  */
-public class BoardPage extends PageObject {
+public class BoardPage extends BasePage {
 
     /**
      * Get the names of the cards present in the list as a List of Strings

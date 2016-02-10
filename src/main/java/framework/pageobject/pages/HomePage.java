@@ -1,13 +1,12 @@
 package framework.pageobject.pages;
 
-import framework.pageobject.PageObject;
 import org.openqa.selenium.By;
 
 /**
  * Describes the page shown when the user logs in. It holds the list of the user boards.
  * Created by totallynotkate on 07.02.16.
  */
-public class HomePage extends PageObject {
+public class HomePage extends BasePage {
 
     /**
      * Switch to one of the boards. This method doesn't perform input check.

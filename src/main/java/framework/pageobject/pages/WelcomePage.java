@@ -23,9 +23,9 @@ public class WelcomePage extends PageObject {
     /**
      * Open a WelcomePage using the URL from config.properties file
      */
-    public void open(){
+    public void open(){ // TODO: 10.02.16 why do we even need this? Isn't accessing the URL via constructor cleaner? There are no classes that expend this page and I highly doubt there will ever be any
         driver.get(PropertyLoader.getInstance().getURL());
-        wait.until(ExpectedConditions.visibilityOf(trelloLogo));
+        wait.until(ExpectedConditions.visibilityOf(trelloLogo)); // TODO: 10.02.16 is it OK to wait e.g. in constructors to be sure we have opened the page?
     }
 
     /**
