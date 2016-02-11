@@ -22,7 +22,7 @@ public class LoginPage extends PageObject {
     private WebElement loginButton;
 
     /**
-     * Log in successfully with the credentials provided as method params. This method doesn't check if the credentials
+     * Log in with the credentials provided as method params. This method doesn't check if the credentials
      * are valid.
      * @param usernameOrEmail username or email are interchangeable, only one needs to be provided
      * @param password password that corresponds to this username or email

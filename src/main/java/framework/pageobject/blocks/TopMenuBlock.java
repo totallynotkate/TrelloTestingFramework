@@ -28,4 +28,6 @@ public class TopMenuBlock extends PageObject{
         logoutMenuOption.click();
         return new LoggedOutPage();
     }
+
+    // TODO: 10.02.16 get profile dialogue method, public ProfileDialogue getProfileDialogue()
 }
