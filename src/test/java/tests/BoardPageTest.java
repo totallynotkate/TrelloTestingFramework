@@ -44,5 +44,4 @@ public class BoardPageTest extends BaseTest {
 
         Assert.assertFalse(boardPage.getListOfCards(FIRST_LIST_NAME).contains(NEW_CARD_NAME));
     }
-
 }
